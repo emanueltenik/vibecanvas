@@ -1,0 +1,894 @@
+/* ============================================
+   # VARIABLES 
+=============================================== */
+:root {
+  /* =========================
+     ## CORE BRAND COLORS
+  ========================== */
+  --color-bg-primary: #0e0e10;
+  /* Main background */
+  --color-bg-secondary: #111114;
+  /* Section background */
+  --color-surface: #1a1a1f;
+  /* Cards / containers */
+  --color-surface-elevated: #222228;
+  /* Hovered cards */
+  --color-primary: #ff3c5f;
+  /* Main accent (coral/red) */
+  --color-primary-hover: #ff5c7a;
+  --color-primary-active: #e63250;
+  --color-secondary: #5f8cff;
+  /* Blue accent */
+  --color-secondary-hover: #7aa3ff;
+  /* =========================
+     ## TEXT COLORS
+  ========================== */
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #b3b3b3;
+  --color-text-muted: #7a7a85;
+  --color-text-inverse: #0e0e10;
+
+  /* =========================
+     ## BORDERS & SHADOWS
+  ========================== */
+  --border-color: #2a2a30;
+  --border-color-light: #33333a;
+  --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.35);
+  --shadow-glow-primary: 0 0 20px rgba(255, 60, 95, 0.35);
+  --shadow-glow-secondary: 0 0 20px rgba(95, 140, 255, 0.35);
+  /* =========================
+    ## BUTTON COLORS
+  ========================== */
+  --btn-primary-bg: var(--color-primary);
+  --btn-primary-text: #ffffff;
+  --btn-outline-border: #ffffff;
+  --btn-outline-text: #ffffff;
+  /* ============================
+    ## Feedback colors
+  ============================ */
+  --color-success: #3c8d47;
+  --color-warning: #e3a72f;
+  --color-error: #c64532;
+  --color-info: #2d93f8;
+  /* ============================
+     ## RADIUS
+  ============================ */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 32px;
+  /* ============================
+     ## TYPOGRAPHY SCALE
+  ============================ */
+  --font-heading: "Poppins", sans-serif;
+  --font-body: "Inter", sans-serif;
+  /*Fluid scale */
+  --fs-xs: clamp(0.7rem, 0.68rem + 0.2vw, 0.75rem);
+  --fs-sm: clamp(0.85rem, 0.82rem + 0.3vw, 0.9rem);
+  --fs-base: clamp(1rem, 0.95rem + 0.4vw, 1.1rem);
+  --fs-md: clamp(1.1rem, 1rem + 0.6vw, 1.25rem);
+  --fs-lg: clamp(1.3rem, 1.1rem + 1vw, 1.6rem);
+  --fs-xl: clamp(1.6rem, 1.2rem + 1.8vw, 2.2rem);
+  --fs-2xl: clamp(2.2rem, 1.6rem + 3vw, 3rem);
+  --fs-3xl: clamp(3rem, 2rem + 4vw, 4rem);
+  --fs-display: clamp(3.5rem, 2.5rem + 6vw, 5rem);
+}
+
+/* ============================================
+   # RESET 
+=============================================== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+body {
+  font: inherit;
+  color: var(--color-text-primary);
+  background: var(--color-bg-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+button {
+  font: inherit;
+  border: none;
+  outline: none;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a {
+  transition: opacity 0.2s ease;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+hr {
+  border: 1px solid var(--border-color-light);
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+/* ============================================
+   # UTILITIES 
+=============================================== */
+.fs-xs {
+  font-size: 0.75rem;
+}
+
+.fs-sm {
+  font-size: 0.9rem;
+}
+
+.fs-base {
+  font-size: 1rem;
+}
+
+.fs-md {
+  font-size: 1.125rem;
+}
+
+.fs-lg {
+  font-size: 1.5rem;
+}
+
+.fs-xl {
+  font-size: 2rem;
+}
+
+.fs-2xl {
+  font-size: 3rem;
+}
+
+.fs-3xl {
+  font-size: 4rem;
+}
+
+.fs-display {
+  font-size: 5rem;
+}
+
+.offscreen {
+  position: absolute;
+  left: -99999px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.block {
+  display: block;
+}
+
+/* ============================================
+   # BLOCKS (GLOBAL SCOPE) 
+=============================================== */
+.gb-vh-flex-col-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  min-height: 100dvh;
+  min-height: 100vh;
+}
+
+.gb-vh-flex-col-container>* {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.gb-cta {
+  padding: 0.625rem 1.25rem;
+  width: -moz-fit-content;
+  width: fit-content;
+  cursor: pointer;
+  text-decoration: none;
+  background-color: transparent;
+  margin-top: 2rem;
+  font-size: 1.1rem;
+  border-radius: var(--radius-sm);
+}
+
+.gb-form-input {
+  padding: 0.5rem;
+  border-radius: 4px;
+  margin-bottom: 2px;
+  width: 100%;
+  background-color: transparent;
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-text-muted);
+}
+
+.gb-form-input::-moz-placeholder {
+  color: var(--color-text-muted);
+}
+
+.gb-form-input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.gb-form-input:focus,
+.gb-form-input:focus-visible {
+  outline: 1px solid var(--color-primary-light);
+}
+
+.gb-card {
+  padding: 1.5rem;
+  background-color: var(--color-surface);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-soft);
+  flex-shrink: 0;
+}
+
+.gb-pill {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 30px;
+}
+
+/* ============================================
+   # LOCAL BLOCKS (SCOPED TO SPECIFIC PAGES/ENTITIES) 
+=============================================== */
+.lb-hero-section_athomepage {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding-top: 8rem;
+  padding-bottom: 2rem;
+  align-items: center;
+  justify-content: center;
+  background-image: url("../images/energetic-performace-under-vibrant-light.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: center;
+  background-position-y: top;
+  min-height: 100vh;
+  text-align: center;
+  color: #bababa;
+}
+
+.lb-hero-section_athomepage h2 {
+  font-size: var(--fs-2xl);
+  letter-spacing: 6px;
+}
+
+
+.lb-about-section_athomepage {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.lb-artists-list_athomepage {
+  width: 100%;
+  margin-top: 2rem;
+  display: flex;
+  overflow-x: auto;
+  gap: 1.5rem;
+  scroll-snap-type: x mandatory;
+}
+
+.lb-artists-list_athomepage li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  min-width: 270px;
+  max-width: 320px;
+  position: relative;
+  background-color: var(--color-bg-secondary);
+  border-radius: var(--radius-sm);
+  scroll-snap-align: start;
+  padding: 0 !important;
+}
+
+.lb-artists-list_athomepage li img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  border-top-left-radius: var(--radius-sm);
+  border-top-right-radius: var(--radius-sm);
+}
+
+.lb-artists-list_athomepage li h3 {
+  font-size: var(--fs-lg);
+}
+
+.lb-artists-list_athomepage li .artist-info {
+  padding: 0 1.5rem;
+  position: absolute;
+  width: 100%;
+  top: 35%;
+  left: 0;
+  transform: translateY(-35%);
+  display: flex;
+  justify-content: space-between;
+}
+
+.lb-artists-list_athomepage li .artist-info div {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.lb-artists-list_athomepage li .artist-info .gb-cta img {
+  width: 45px;
+}
+
+
+.lb-artists-list_athomepage li .description {
+  flex-grow: 1;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  padding: 0 0.5rem;
+}
+
+.lb-artists-list_athomepage li .description p.artist-description {
+  font-size: var(--fs-sm);
+  color: var(--color-text-secondary);
+  text-align: left;
+  padding: 0 0.5rem;
+}
+
+.lb-artists-list_athomepage h2 {
+  margin-bottom: 8px;
+}
+
+.lb-genres-section_athomepage ul {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.lb-genres-section_athomepage ul li {
+  display: flex;
+}
+
+.lb-genres-section_athomepage .li {
+  flex-grow: 1;
+  background: linear-gradient(50deg, var(--color-primary-hover), var(--color-secondary));
+  font-size: var(--fs-md);
+  box-shadow: var(--shadow-glow-secondary);
+  border-radius: var(--radius-sm);
+  padding: 1rem 2rem;
+  width: 100%;
+  aspect-ratio: 4/3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lb-playlists-section_athomepage ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.lb-playlists-section_athomepage li {
+  display: flex;
+}
+
+.lb-playlists-section_athomepage .li {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1/1;
+  text-align: center;
+  font-size: var(--fs-md);
+  width: 100%;
+  max-width: 280px;
+  gap: 1rem;
+
+}
+
+.lb-playlists-section_athomepage h3 {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--fs-base);
+  margin-top: 1rem;
+}
+
+.lb-playlists-section_athomepage .content {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.lb-playlists-section_athomepage .content .likes {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  font-size: 21px !important;
+  color: var(--color-text-secondary);
+}
+
+.lb-playlists-section_athomepage p {
+  font-size: var(--fs-lg);
+}
+
+.lb-playlists-section_athomepage h3+img,
+.lb-albums-list_athomepage h3+img {
+  width: 80px;
+}
+
+.lb-albums-list_athomepage {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem
+}
+
+.lb-albums-list_athomepage li {
+  width: 100%;
+  max-width: 280px;
+  display: flex;
+}
+
+.lb-albums-list_athomepage .li {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.lb-albums-list_athomepage .li .album {
+  display: flex;
+  flex-direction: column-reverse;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: left;
+  gap: 1.5rem;
+}
+
+.lb-albums-list_athomepage .li .album h3 {
+  text-overflow: ellipsis;
+  display: inline;
+}
+
+.lb-albums-list_athomepage .li .details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+  font-size: var(--fs-sm);
+}
+
+.lb-albums-list_athomepage .li img,
+.lb-albums-list_athomepage .li h3 {
+  justify-self: center;
+}
+
+
+.lb-media-section_athomepage .media-container {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+
+.lb-media-section_athomepage .video-media,
+.lb-media-section_athomepage .audio-media {
+  width: 100%;
+  max-width: 560px;
+}
+
+.lb-media-section_athomepage .audio-media {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.lb-media-section_athomepage iframe {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: var(--radius-sm);
+}
+
+.lb-media-section_athomepage audio {
+  width: 100%;
+}
+
+.lb-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-right: 0.5rem;
+  padding-left: 0.2rem;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+  margin: 0;
+  margin-bottom: 2rem;
+  z-index: 998;
+  background-color: var(--color-bg-primary);
+}
+
+.footer-container {
+  background-color: var(--color-surface);
+  padding: 3rem 0.5rem;
+  padding-bottom: 0.5rem;
+  margin-top: 12rem;
+}
+
+.lb-footer {
+  margin: 0 auto;
+  max-width: 1400px;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+  text-align: center;
+}
+
+.lb-footer #news-letter-subscription-form {
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.lb-footer #news-letter {
+  justify-self: center;
+  max-width: 23rem;
+}
+
+.lb-footer #links {
+  justify-self: center;
+  max-width: 20rem;
+}
+
+.lb-footer #links a:-moz-any-link {
+  color: var(--color-info);
+}
+
+.lb-footer #links a:any-link {
+  color: var(--color-info);
+}
+
+.lb-footer #links table {
+  border: none;
+  border-collapse: collapse;
+}
+
+.lb-footer #links table th {
+  border-bottom: 1px solid var(--border-color-light);
+}
+
+.lb-footer #links table th,
+.lb-footer #links table td {
+  padding: 0.2rem 1.2rem;
+}
+
+.lb-footer #links table td:nth-child(odd),
+.lb-footer #links table th:nth-child(odd) {
+  border-right: 1px solid var(--border-color-light);
+}
+
+.lb-footer #copyright {
+  color: var(--color-text-muted);
+}
+
+/* ============================================
+   # ELEMENTS 
+=============================================== */
+.lb-header__nav {
+  width: 100%;
+  padding: 0.5rem;
+}
+
+
+.lb-header__nav li {
+  border-bottom: 1px solid var(--border-color-light);
+  display: flex;
+}
+
+.lb-header__nav li a {
+  flex-grow: 1;
+}
+
+.lb-header__nav-link:-moz-any-link {
+  font-size: var(--fs-base);
+  color: var(--color-sage-light);
+  padding: 1.5rem 1rem;
+  width: 100%;
+  text-align: center;
+}
+
+.lb-header__nav-link:any-link {
+  font-size: var(--fs-base);
+  color: var(--color-sage-light);
+  padding: 1.5rem 1rem;
+  width: 100%;
+  text-align: center;
+}
+
+.lb-header__nav-btn {
+  background-color: transparent;
+  border: none;
+  color: var(--color-bg);
+}
+
+.lb-artists-section_athomepage h2 {
+  text-align: center;
+}
+
+.lb-genres-section_athomepage h2 {
+  text-align: center;
+}
+
+/* ============================================
+   # MODIFIERS 
+=============================================== */
+.gb-cta--button {
+  margin: 0;
+  transition: opacity 0.2s ease;
+}
+
+.gb-cta--button:hover,
+.gb-cta--button:focus-visible {
+  opacity: 0.89;
+}
+
+.gb-cta--small {
+  padding: 0.4rem 1.08rem;
+  font-size: 1rem;
+}
+
+.gb-cta--primary {
+  background-color: var(--color-primary);
+  color: var(--color-text-primary);
+}
+
+.gb-cta--outline {
+  border: 1px solid var(--color-text-muted);
+  color: var(--color-text-primary);
+}
+
+.gb-cta-surface {
+  background-color: var(--color-surface);
+  color: var(--color-text-primary);
+}
+
+.gb-pill--primary {
+  background-color: var(--color-primary);
+  color: var(--color-text-primary);
+}
+
+.gb-pill--secondary {
+  background-color: var(--color-secondary);
+  color: var(--color-text-primary);
+}
+
+.gb-pill--outline {
+  background-color: transparent;
+  border: 1px solid var(--color-text-muted);
+  color: var(--color-text-primary);
+}
+
+.lb-header--absolute {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.lb-header--absolute+* {
+  margin-top: 30em;
+}
+
+
+/* ============================================
+   # ADAPTIVE STYLING (RESPONSIVE BEHAVIOUR)
+=============================================== */
+@media screen and (min-width: 320px) {
+  .lb-genres-section_athomepage ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .lb-genres-section_athomepage li {
+    width: 35%;
+    max-width: 200px;
+  }
+}
+
+@media screen and (min-width: 400px) {
+  .lb-playlists-section_athomepage ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .lb-playlists-section_athomepage li {
+    width: 45%;
+    max-width: 280px;
+    max-width: 250px;
+  }
+
+  .lb-playlists-section_athomepage h3 {
+    font-size: var(--fs-sm);
+  }
+
+  .lb-playlists-section_athomepage p {
+    font-size: var(--fs-base);
+  }
+
+
+}
+
+
+@media screen and (min-width: 560px) {
+  .lb-hero-section_athomepage .ctas {
+    flex-direction: row;
+    gap: 2rem;
+  }
+}
+
+@media screen and (min-width: 920px) {
+  .lb-header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 0;
+    padding-bottom: 0;
+    background-color: transparent;
+  }
+
+  .lb-header--absolute+* {
+    margin-top: 1px;
+  }
+
+
+  .lb-header__nav {
+    width: fit-content;
+    padding: 0;
+  }
+
+  .lb-header__nav li {
+    border-bottom: none;
+    display: unset;
+  }
+
+  .lb-header__nav-link:-moz-any-link {
+    padding: 0.625rem 1rem;
+  }
+
+  .lb-header__nav-link:any-link {
+    padding: 0.625rem 1rem;
+  }
+
+  .lb-header__nav ul {
+    display: flex;
+    gap: 1rem;
+  }
+
+
+  .lb-header__nav ul li {
+    padding: 0;
+    border: none;
+  }
+
+  .lb-header__nav-btn-container {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 920px) {
+  .lb-footer {
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr;
+    -moz-column-gap: 1.5rem;
+    column-gap: 1.5rem;
+    row-gap: 3rem;
+    align-items: start;
+  }
+
+  .lb-footer #copyright {
+    grid-column: span 3;
+  }
+
+  .lb-footer #news-letter-subscription-form {
+    display: grid;
+    grid-template-columns: 2.5fr 1fr;
+  }
+
+  .lb-artists-list_athomepage li .artist-info {
+    top: 38%;
+    transform: translateY(-38%);
+  }
+
+}
+
+@media screen and (min-width: 980px) {
+  .lb-artists-list_athomepage li .artist-info {
+    top: 40%;
+    transform: translateY(-40%);
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .lb-artists-list_athomepage li .artist-info {
+    top: 42%;
+    transform: translateY(-42%);
+  }
+}
+
+@media screen and (min-width: 1040px) {
+  .lb-artists-list_athomepage {
+    justify-content: center;
+  }
+}
+
+@media screen and (min-width: 1080px) {
+
+  .lb-artists-list_athomepage li .artist-info {
+    top: 45%;
+    transform: translateY(-45%);
+  }
+}
