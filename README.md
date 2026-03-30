@@ -6,4 +6,4 @@ This project focuses on demonstrating modern UI/UX design and responsive layout,
 
 The project uses HTML and CSS.# vibecanvas
 
-[live-site: https://emanueltenik.github.io/vibecanvas/](https://emanueltenik.github.io/vibecanvas/)
+Live-site: [https://emanueltenik.github.io/vibecanvas/](https://emanueltenik.github.io/vibecanvas/)
