@@ -5,3 +5,5 @@ VibeCanvas is a modern music and art showcase website designed to highlight Keny
 This project focuses on demonstrating modern UI/UX design and responsive layout, with vanilla CSS.
 
 The project uses HTML and CSS.# vibecanvas
+
+[live-site](https://emanueltenik.github.io/vibecanvas/)
